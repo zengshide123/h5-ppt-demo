@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试文件</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0
+        }
+    </style>
+    <link rel="stylesheet" href="../css/H5.css"/>
+    <link rel="stylesheet" href="../css/H5ComponentBase.css"/>
+</head>
+<body>  
+    <!-- 测试页面h5对象内容组织功能，以及fullpage页面切换和组件切换 -->
+
+    <!-- 内容组织管理，有可能会加载若干个资源 -->
+
+    <!-- 基本资源库 -->
+    <script src="../js/lib/jquery.js"></script>
+    <script src="../js/lib/jquery-ui.min.js"></script>
+    <script src="../js/lib/jquery.fullPage.js"></script>
+    <!-- h5对象资源和管理内容 页以及组件 -->
+    <script src="../js/H5.js"></script>
+    <script src="../js/H5ComponentBase.js"></script>
+    <!-- 主要脚本编辑区域 -->
+    <script>
+            $(function(){
+                // 实例化一个H5对象
+                // 在日志控制台打印h5是找不到的，因为这里是个函数作用域，相当于一个命名空间
+                // 成为私有变量和方法，能够有效的避免全局变量和方法的污染
+                var h5 = new H5();
+                    h5
+                      .addPage("face",'首页')
+                        .addComponent('logo',{text:'logo',
+                                width:400,
+                                height:100,
+                                css:{
+                                    backgroundColor:'red',
+                                    top:200,
+                                    opacity:0
+                                },
+                                center:true,
+                            animateIn: {
+                                opacity: 1
+                            },
+                            animateOut: {
+                                opacity: 0
+                            }       
+                    })
+                        .addComponent('slogan',{text:'slogan',
+                            width: 400,
+                            height: 100,
+                            css: {
+                                backgroundColor: 'red',
+                                top: 300,
+                                opacity:0
+                            },
+                            center: true,
+                            animateIn:{
+                                opacity:1
+                            },
+                            animateOut:{
+                                opacity:0
+                            }   
+                    })
+                      .addPage("desc",'核心理念页')
+                        .addComponent('caption',{text:'核心理念',
+                            width: 400,
+                            height: 100,
+                            css: {
+                                backgroundColor: 'green',
+                                top: 200,
+                                opacity:0
+                            },
+                            center: true,
+                            animateIn: {
+                                opacity: 1
+                            },
+                            animateOut: {
+                                opacity: 0
+                            }     
+                    })
+                      .addPage("page-3",'课程分布页')
+                        .addComponent('caption',{text:'课程方向分布',
+                            width: 400,
+                            height: 100,
+                            css: {
+                                backgroundColor: 'orange',
+                                top: 200,
+                                opacity:0
+                            },
+                            center: true,
+                            animateIn: {
+                                opacity: 1
+                            },
+                            animateOut: {
+                                opacity: 0
+                            }      
+                    })
+                      .loader()
+            })
+    </script>
+</body>
+</html>
